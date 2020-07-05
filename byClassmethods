@@ -4,19 +4,30 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class sendKeys {
+public class byClassmethods {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "D://chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.facebook.com/");
-		driver.manage().window().maximize();
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector("#email")).sendKeys("Girish");
-		System.out.println(driver.findElement(By.cssSelector("[for='pass']")).getText());
+	System.setProperty("webdriver.chrome.driver", "D://chromedriver.exe");
 		
-		driver.findElement(By.cssSelector("input[value*='Log ']")).click();
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://cetonline.karnataka.gov.in/kea/");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.id("ddlLanguage")).click(); //Using ID locator
+		
+		driver.findElement(By.cssSelector("option[value='E']")).click();  //Using Css path dynamically to click a option from dropdown.
+		
+		driver.findElement(By.linkText("CONTACT US")).click(); // Using linktext works only with anchor tag
+		
+		driver.get("https://github.com/");
+		
+		driver.findElement(By.name("user[login]")).sendKeys("Girish B C"); // Using name attribute
+		
+		System.out.println(driver.findElement(By.className("h4-mktg")).getText()); // Using class name
+		
+		Thread.sleep(2000);
+		driver.close();
 		
 	}
 
