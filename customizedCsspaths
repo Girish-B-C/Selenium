@@ -1,0 +1,39 @@
+package Selenium_course_assignments;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class customizedCsspaths {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D://chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.ktm.com/en-in.html");
+		driver.manage().window().maximize();
+
+		Thread.sleep(5000);
+
+		// using tagName1
+		driver.findElement(By.cssSelector("span[href='/en-in/models.html']")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.cssSelector("[data-segment-id='436c551f-db16-4a28-8ae4-c8bcc11bdbcf']")).click();
+
+		driver.get("https://ekartlogistics.com/");
+
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector("input#tracking_input")).sendKeys("12345");
+
+		driver.findElement(By.cssSelector("span.input-group-addon")).click();
+
+		Thread.sleep(2000);
+
+		driver.findElement(By.cssSelector("a[href*='about']")).click();
+
+		driver.close();
+
+	}
+}
