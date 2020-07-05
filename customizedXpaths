@@ -1,0 +1,35 @@
+package Selenium_course_assignments;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class customizedXpaths {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D://chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.zee5.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+
+		// Using tagname_1
+		driver.findElement(By.xpath("//a[@class='loginBtn noSelect'][2]")).click();
+
+		Thread.sleep(5000);
+
+		// Using Regular expression 1
+		driver.findElement(By.xpath("//*[@name='userName']")).sendKeys("abcd");
+
+		// driver.findElement(By.xpath("//*[@name='userName']")).sendKeys("Girish B C");
+		// *[@id="root"]/div/div/div[1]/div[4]/div[1]/div/div/div/div[9]/div/div/div/div[2]/a
+
+		// Using Regular expression 2
+		driver.findElement(By.xpath("//span[contains(@class,'noSelect redi')]")).click();
+
+		driver.close();
+
+	}
+
+}
